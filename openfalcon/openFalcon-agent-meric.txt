@@ -1,0 +1,93 @@
+
+# 忽略采集的metric
+
+"TcpExt.ArpFilter": true,
+"TcpExt.DelayedACKLocked": true,
+"TcpExt.ListenDrops": true,
+"TcpExt.ListenOverflows": true,
+"TcpExt.LockDroppedIcmps": true,
+"TcpExt.PruneCalled": true,
+"TcpExt.TCPAbortFailed": true,
+"TcpExt.TCPAbortOnMemory": true,
+"TcpExt.TCPAbortOnTimeout": true,
+"TcpExt.TCPBacklogDrop": true,
+"TcpExt.TCPDSACKUndo": true,
+"TcpExt.TCPFastRetrans": true,
+"TcpExt.TCPLossFailures": true,
+"TcpExt.TCPLostRetransmit": true,
+"TcpExt.TCPMemoryPressures": true,
+"TcpExt.TCPMinTTLDrop": true,
+"TcpExt.TCPPrequeueDropped": true,
+"TcpExt.TCPSchedulerFailed": true,
+"TcpExt.TCPSpuriousRTOs": true,
+"TcpExt.TCPTSReorder": true,
+"TcpExt.TCPTimeouts": true,
+"TcpExt.TW": true,
+"net.if.in.packets": true,
+"net.if.in.errors": true,
+"net.if.in.dropped": true,
+"net.if.in.fifo.errs": true,
+"net.if.in.frame.errs": true,
+"net.if.in.compressed": true,
+"net.if.in.multicast": true,
+"net.if.out.packets": true,
+"net.if.out.errors": true,
+"net.if.out.dropped": true,
+"net.if.out.fifo.errs": true,
+"net.if.out.collisions": true,
+"net.if.out.carrier.errs": true,
+"net.if.out.compressed": true,
+"net.if.total.packets": true,
+"cpu.nice":true,
+"cpu.irq":true,
+"cpu.guest":true,
+"mem.swapfree.percent":true,
+"mem.swapused.percent":true
+
+-------------------------------------------------------
+## 脚本PUSH 
+
+# 注意，http request body是个json，这个json是个列表
+
+ts=`date +%s`;
+
+curl -X POST -d "[{\"metric\": \"test-metric\", \"endpoint\": \"test-endpoint\", \"timestamp\": $ts,\"step\": 60,\"value\": 1,\"counterType\": \"GAUGE\",\"tags\": \"idc=lg,project=xx\"}]" http://127.0.0.1:1988/v1/push
+
+
+
+---------------------------------------------------------
+## python PUSH
+
+#!-*- coding:utf8 -*-
+
+import requests
+import time
+import json
+
+ts = int(time.time())
+payload = [
+    {
+        "endpoint": "test-endpoint",
+        "metric": "test-metric",
+        "timestamp": ts,
+        "step": 60,
+        "value": 1,
+        "counterType": "GAUGE",
+        "tags": "idc=lg,loc=beijing",
+    },
+
+    {
+        "endpoint": "test-endpoint",
+        "metric": "test-metric2",
+        "timestamp": ts,
+        "step": 60,
+        "value": 2,
+        "counterType": "GAUGE",
+        "tags": "idc=lg,loc=beijing",
+    },
+]
+
+r = requests.post("http://127.0.0.1:1988/v1/push", data=json.dumps(payload))
+
+print r.text
+
