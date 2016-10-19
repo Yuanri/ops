@@ -31,9 +31,9 @@ do
 		for i in `ls *.log`
 		do
 	       	rm -f ${i}_$(date -d '7 days ago'  "+%Y%m%d_%H").gz 
-			mv $i ${i}_$(date "+%Y%m%d_%H")
+		mv $i ${i}_$(date "+%Y%m%d_%H")
 	       	gzip  ${i}_$(date -d '1 hours ago' "+%Y%m%d_%H")
-			wait
+		wait
 		done
 	fi
 done
