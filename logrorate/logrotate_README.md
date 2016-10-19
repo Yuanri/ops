@@ -7,7 +7,45 @@ logrotate是一个日志文件管理工具。
 我们可以根据日志文件的大小、天数等来转储，便于对日志文件管理
 
 一般都是通过cron计划任务来完成的。
-	
+
+##缺省配置 logrotate
+
+	logrotate 缺省的配置募/etc/logrotate.conf。
+	Red Hat Linux 缺省安装的文件内容是：
+
+	# see "man logrotate" for details
+	# rotate log files weekly
+	weekly
+
+	# keep 4 weeks worth of backlogs
+	rotate 4
+
+	# send errors to root
+	errors root
+	# create new (empty) log files after rotating old ones
+	create
+
+	# uncomment this if you want your log files compressed
+	#compress
+	1
+	# RPM packages drop log rotation information into this directory
+	include /etc/logrotate.d
+
+	# no packages own lastlog or wtmp --we'll rotate them here
+	/var/log/wtmp {
+	monthly
+	create 0664 root utmp
+	rotate 1
+	}
+
+	/var/log/lastlog {
+	monthly
+	rotate 1
+	}
+
+	# system-specific logs may be configured here
+
+
 ##1、配置实例
 	
 	/var/log/messages{
