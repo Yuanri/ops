@@ -49,47 +49,46 @@ logrotate是一个日志文件管理工具。
 ##1、配置实例
 	
 	/var/log/messages{
-	rotate 5
-	weekly
-	postrotate
-	  /sbin/killall -HUP syslogd	
-	endscript	
+		rotate 5
+		weekly
+		postrotate
+		  /sbin/killall -HUP syslogd	
+		endscript	
 	}
 
 	"/var/log/httpd/access.log" /var/log/httpd/error.log {
-	rotate 5
-	mail www@my.org
-	size 100k
-	sharedscripts
-	postrotate
-		/sbin/killall -HUP httpd
-	endscript
+		rotate 5
+		mail www@my.org
+		size 100k
+		sharedscripts
+		postrotate
+			/sbin/killall -HUP httpd
+		endscript
 	}
 
 	/var/log/news/* {
-	monthly
-	rotate 2
-	olddir /var/log/news/old
-	missingok
-	postrotate
-		kill -HUP ‘cat /var/run/inn.pid‘
-	endscript
-	nocompress
+		monthly
+		rotate 2
+		olddir /var/log/news/old
+		missingok
+		postrotate
+			kill -HUP ‘cat /var/run/inn.pid‘
+		endscript
+		nocompress
 	}
 
 ###针对正在打开的文件进行日志管理：
 如 Tomcat 的默认日志输出，数据库的慢日志回滚等
 
-	/data/server/tcl-findmyphone-web-8080/logs/catalina.out 
-	{
-	copytruncate
-	daily
-	dateext
-	delaycompress
-	missingok
-	notifempty
-	rotate 7
-	size 100M
+	/data/server/tcl-findmyphone-web-8080/logs/catalina.out {
+		copytruncate
+		daily
+		dateext
+		delaycompress
+		missingok
+		notifempty
+		rotate 7
+		size 100M
 	}
 
 ##2. 配置选项说明
