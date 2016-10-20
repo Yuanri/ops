@@ -1,0 +1,12 @@
+/data/mysql/log/slow.log {
+	# compress
+	copytruncate
+	# create 644 mysql mysql
+	daily
+	dateext
+	delaycompress
+	missingok
+	notifempty
+	rotate 7
+	# size 1M
+}
