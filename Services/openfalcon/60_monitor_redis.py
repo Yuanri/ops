@@ -13,6 +13,7 @@ PASSWORD=''
 host=['127.0.0.1','6379',PASSWORD]
 
 URL='http://127.0.0.1:1988/v1/push'
+cfg='/data/softwares/openfalcon/falcon-agent/cfg.json'
 
 monit_keys = [
     ('connected_clients','GAUGE'), 
@@ -105,7 +106,6 @@ def GetInfo(endpoint,host,tags):
     return json.dumps(payload, default=lambda o: o.__dict__, indent=4)
 
 def main():
-    cfg='/data/softwares/openfalcon/falcon-agent/cfg.json'
     f=open(cfg,'r')
     cfg_data=json.load(f)
     f.close()
@@ -122,8 +122,4 @@ def pushData(payload):
 
 
 if __name__ == '__main__':
-    #os.chdir(os.path.dirname(sys.argv[0]))
-    dir=os.path.dirname(sys.argv[0])
-    if dir != '' :
-	os.chdir(dir)
     main()
