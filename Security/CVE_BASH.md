@@ -7,7 +7,10 @@
 所有安装GNU bash 版本小于或者等于4.3的Linux操作系统
 
 ###【检测方法】
-env -i  X='() { (a)=>\' bash -c 'echo date'; cat echo
+	方法1：
+	env -i  X='() { (a)=>\' bash -c 'echo date'; cat echo
+	方法2：
+	env x='() { :;}; echo vulnerable' bash -c "echo this is a test"
 
 
 （备注：输出结果中包含date字符串就修复成功了。）
