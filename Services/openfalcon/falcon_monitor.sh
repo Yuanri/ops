@@ -15,7 +15,7 @@ AppName=$(basename `pwd`)
 
 # 配置普通用户运行
 User=openfalcon
-echo AppName : $AppName
+echo AppName: $AppName
 
 start_agent(){
 	if test -f  $AppName 
@@ -32,6 +32,12 @@ start_agent(){
 
 
 # start to check  falcon-agent
-re=$( ps -ef| grep "$AppName -c cfg.json" | grep -v grep |wc -l )
-echo re:$re   [1:running  0:not running]
-test  $re -eq 0  &&  start_agent
+URL=$(awk  -F '"' '/"http"/,/listen/{URL=$4}END{print URL}'  cfg.json)
+echo Listen: $URL
+re=$(curl -s  $URL/health)
+if [  "$re"  != "ok" ]; then
+	echo Status  : $re [not running, try to restart is]
+	start_agent
+else
+	echo Status  : $re [running]	
+fi
