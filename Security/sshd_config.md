@@ -4,8 +4,13 @@
 ###只要在ssh的配置文件：sshd_config中添加如下一行即可
     Allowusers username@192.168.1.100
     上述只允许IP地址是192.168.1.100的机器以username用户登录。
-
-
+    
+### 注意：
+    1、AllowUsers 最大个数限制为255
+    2、相关的 allow/deny 指令按照下列顺序处理：
+        DenyUsers --> AllowUsers --> DenyGroups-->AllowGroups
+        这里最后的结果取合集
+    
 ###AcceptEnv
 
      只支持SSHv2协议
