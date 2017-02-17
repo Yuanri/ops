@@ -1,0 +1,20 @@
+
+软件安装路径：/data/softwares:
+
+下载已编译好的 maven 二进制：
+http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+http://mirrors.hust.edu.cn/apache/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz
+
+
+下载源码：
+wget http://mirrors.hust.edu.cn/apache/hadoop/common/hadoop-2.7.3/hadoop-2.7.3-src.tar.gz
+wget http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.3.9/source/apache-maven-3.3.9-src.tar.gz
+wget https://www.apache.org/dist/ant/binaries/apache-ant-1.10.1-bin.tar.bz2
+wget http://prdownloads.sourceforge.net/findbugs/findbugs-3.0.1.tar.gz?download
+
+
+
+
+
+
+
