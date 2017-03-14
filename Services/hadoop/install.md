@@ -1,5 +1,6 @@
-#1 hadoop 集群安装部署
-##1.1  环境准备
+# 1 hadoop 集群安装部署
+
+## 1.1  环境准备
     Centos 6.5
     hadoop 2.7.3
     java 1.7
@@ -20,15 +21,15 @@
     测试ssh 免密码登录 是否可用：
     $ ssh localhost 
     
-##1.2 Hadoop 安装
-###1.2.1 环境准备
+## 1.2 Hadoop 安装
+### 1.2.1 环境准备
     配置JAVA_HOME 环境变量
     # su - hadoop
     $ echo 'export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk'  >> ~/.bashrc
     $ source ~/.bashrc
     $ java -version
     
-###1.2.2 安装hadoop2
+### 1.2.2 安装hadoop2
     下载地址：
      http://mirror.bit.edu.cn/apache/hadoop/common/ 
      http://mirrors.cnnic.cn/apache/hadoop/common/ 
@@ -45,7 +46,7 @@
      $ cd  /data/softwares/hadoop
      $ ./bin/hadoop version
      
-###1.2.3 hadoop 单机配置（非分布式）
+### 1.2.3 hadoop 单机配置（非分布式）
 无需进行其他设置，即 单 java 进程，方便进行调试
 
     hadoop 自带丰富的例子：
@@ -64,7 +65,7 @@
     在 /etc/hosts 中添加hostname 的主机记录
     
     
-###1.2.4 hadoop 伪分布配置
+### 1.2.4 hadoop 伪分布配置
 hadoop 可以再单节点上以伪分布的方式运行，Hadoop 进程已分离的java 进程来运行，节点既作为 NameNode 也作为 DataNode ，读取的是HDFS中的文件
 
     
