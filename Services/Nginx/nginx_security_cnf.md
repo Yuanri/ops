@@ -6,3 +6,13 @@
       server_tokens  off;
       ....
     }
+
+
+### 2、拒绝IP直接访问
+
+    server {
+            listen 80 default_server;
+            server_name _;
+            access_log  off;
+            return 403;
+       }
