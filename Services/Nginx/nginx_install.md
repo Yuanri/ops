@@ -112,6 +112,58 @@
 
 
 
+### 4 、Tenginx +Lua+Naxsi
+
+4.1 参考资料：
+
+    http://www.cnblogs.com/yjf512/archive/2012/03/27/2419577.html
+
+4.2 安装依赖包
+
+    yum install pcre pcre-devel  lua lua-devel  openssl openssl-devel
+    
+4.3 安装LuaJit
+
+    tar  -xvf   LuaJIT-2.0.4.tar.gz
+
+    ./configure --prefix=/data/softwares/tengine  
+    --with-http_ssl_module  
+    --with-http_lua_module=shared 
+    --with-luajit-inc=/usr/local/include/luajit-2.0  
+    --with-luajit-lib=/usr/local/lib 
+    --add-module=../ngx_devel_kit-0.3.0 
+    --add-module=../lua-nginx-module-0.10.5
+
+
+4.4 查看进程依赖关系：
+
+    ldd ./sbin/nginx 
+
+
+### 5 添加NGINX web 防火墙，防 XSS 和 SQL 注入
+   
+5.1 naxsi下载
+ 
+    https://github.com/nbs-system/naxsi/archive/master.zip
+
+
+5.2 编译安装：luajit
+
+    tar  -xvf   LuaJIT-2.0.4.tar.gz
+    cd    LuaJIT-2.0.4
+    make
+    make PREFIX=/data/softwares/tengine2.1.2-lua-naxsi    install
+
+    ./configure 
+    --prefix=/data/softwares/tengine2.1.2-lua-naxsi 
+    --with-http_ssl_module 
+    --with-http_lua_module=shared 
+    --with-luajit-inc=/usr/local/include/luajit-2.0/ 
+    --with-luajit-lib=/usr/local/lib 
+    --add-module=../ngx_devel_kit-0.3.0 
+    --add-module=../lua-nginx-module-0.10.5 
+    --add-module=../naxsi-master/naxsi_src/
+
 
 
 
