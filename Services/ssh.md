@@ -4,7 +4,9 @@
     ssh 客户端配置：/etc/ssh_config   ~/.ssh/config
 
     添加一行记录：ServerAliveInterval 60 
-### 2、普通用户登录系统报错，提示：
+### 2、修改普通 ulimit 
+
+普通用户登录系统报错，提示：
 
      -bash: ulimit: open files: cannot modify limit: Operation not permitted.
 
