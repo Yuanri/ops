@@ -67,3 +67,5 @@ http {
 
     include vhost/online.conf;
     include vhost/test.conf;
+    
+   }
