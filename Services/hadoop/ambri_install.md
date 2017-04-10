@@ -76,14 +76,14 @@ Agent 会定时地发送各个机器每个软件模块的状态给 Ambari Server
 
 #### 1.2 安装ambari-server 
     
-    yum install ambari-server
-    
-    启动之前，配置一些默认参数
-    ambari-server setup
-    
-    启动：ambari-server start
-    停止：ambari-server stop
-    
-    默认web 地址：http://localhost:8080
-    
-    默认账号密码： admin / amdin 
+        yum install ambari-server
+
+        启动之前，配置一些默认参数
+        ambari-server setup
+
+        启动：ambari-server start
+        停止：ambari-server stop
+
+        默认web 地址：http://localhost:8080
+
+        默认账号密码： admin / amdin 
