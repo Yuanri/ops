@@ -73,6 +73,21 @@ Agent 会定时地发送各个机器每个软件模块的状态给 Ambari Server
       baseurl=http://10.87.12.38/HDP-UTILS-1.1.0.20/repos/centos6/
       enabled=1
       gpgcheck=0
+      
+      
+注意事项：
+    
+Generate the repository metadata.
+
+For Ambari:
+
+    createrepo <web.server.directory>/ambari/<OS>/Updates-ambari-2.1.2
+
+For HDP Stack Repositories:
+
+    createrepo <web.server.directory>/hdp/<OS>/HDP-<latest.version>
+
+    createrepo <web.server.directory>/hdp/<OS>/HDP-UTILS-<version>
 
 #### 1.2 安装ambari-server 
     
