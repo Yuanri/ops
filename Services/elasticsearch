@@ -1,0 +1,66 @@
+    在实际生产可能要升级ES或者修改配置后重启，我碰到的是建完索引后，内存占90%，为解决这个问题，首先考虑重启集群的各节点。生产ES版本为1.7.2。以下为1.4.5版本的重启方式，也兼容当前版本。
+
+第一步：先暂停集群的shard自动均衡。
+curl -XPUT http://localhost:9200/_cluster/settings -d'
+{
+    "transient" : {
+        "cluster.routing.allocation.enable" : "none"
+    }
+}'
+
+第二步：shutdown你要升级的节点
+curl -XPOST http://localhost:9200/_cluster/nodes/_local/_shutdown
+
+第三步：重启该节点，并确认该节点重新加入到了集群中
+./elasticsearch -d
+
+第四步：重复2-3步，升级重启其它要升级的节点。
+
+第五步：重启启动集群的shard均衡
+curl -XPUT http://localhost:9200/_cluster/settings -d'
+{
+    "transient" : {
+        "cluster.routing.allocation.enable" : "all"
+    }
+}'
+
+到此整个集群安全升级并且重启结束。
+
+上面那段方法，当关掉集群allocation，和_shutdown一个node时，再用./elasticsearch -d重启node。完成第一个节点时，查看集群状态是yellow，看各分片状态也是UNASSIGNED状态。因为集群allocation被关闭，必须打开，正常情况下过一会儿才能看到green状态。当然关闭allocation不影响新启动的节点加入进群，若以前存在索引，也不影响其提供搜索服务。
+
+    查阅官方文档，在1.7.0增加了新接口，不关闭allocation，而是可以延迟集群allocation，这样就有时间去重启集群的某个node，延迟时间到了，自动回复allocation（未经实验，个人觉得这种方法更好）。
+
+因为2.0之后会移除_shutdown的api，使用以下启动和停止node。
+Running as a daemon
+To run it in the background, add the -d switch to it:
+$ bin/elasticsearch -d
+PID
+The Elasticsearch process can write its PID to a specified file on startup, making it easy to shut down the process later on:
+$ bin/elasticsearch -d -p pid    #启动
+$ kill `cat pid`                 #停止
+
+
+curl http://localhost:9200/_cat/nodes?v			查看节点状态
+
+curl http://localhost:9200/_cat/indices?v		查看节点索引
+
+curl http://localhost:9200/_cat/health?v			查看健康状态
+
+curl http://localhost:9200/_cat/shards?v			查看分片状态
+
+curl -XGET 'http://localhost:9200/appcenter_v2.2/_search?pretty=ture' -d '
+{
+  "from": 10, 
+  "size": 2, 
+  "query": {
+    "match_all": {}
+    
+  }
+}'
+
+
+参考：
+    https://www.elastic.co/blog/elasticsearch-1-7-0-and-1-6-1-released
+    https://www.elastic.co/guide/en/elasticsearch/reference/2.0/setup.html#setup-installation-pid
+    https://www.elastic.co/guide/en/elasticsearch/reference/1.7/cluster-nodes-shutdown.html#_disable_shutdown
+    https://www.elastic.co/guide/en/elasticsearch/reference/1.4/cluster-nodes-shutdown.html#_disable_shutdown
