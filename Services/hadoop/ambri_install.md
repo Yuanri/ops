@@ -1,5 +1,7 @@
 # Ambri
 
+官网：https://cwiki.apache.org/confluence/display/AMBARI/Ambari+User+Guides
+
 Ambari 就是为了让 Hadoop 以及相关的大数据软件更容易使用的一个工具
 
 Ambari 自身也是一个分布式架构的软件，主要由两部分组成：Ambari Server 和 Ambari Agent。
@@ -102,3 +104,15 @@ For HDP Stack Repositories:
         默认web 地址：http://localhost:8080
 
         默认账号密码： admin / amdin 
+
+
+#### 源码安装 ambari-server 2.5.0 注意事项
+
+        
+        如果遇到报错：/usr/sbin/ambari-server: line 33: buildNumber: unbound variable
+        打开ambari-server脚本，把${buildNumber}这行换成 HASH="${VERSION}"
+        
+        OOM 内存不足时：
+        export MAVEN_OPTS='-Xmx1024m -XX:MaxPermSize=516m'
+        
+        
