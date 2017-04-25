@@ -112,7 +112,7 @@ For HDP Stack Repositories:
         如果遇到报错：/usr/sbin/ambari-server: line 33: buildNumber: unbound variable
         打开ambari-server脚本，把${buildNumber}这行换成 HASH="${VERSION}"
         
-        OOM 内存不足时：
-        export MAVEN_OPTS='-Xmx1024m -XX:MaxPermSize=516m'
+        OOM 内存不足时：
+        export MAVEN_OPTS='-Xmx1024m -XX:MaxPermSize=516m'
         
         
