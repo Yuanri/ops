@@ -115,4 +115,21 @@ For HDP Stack Repositories:
         OOM 内存不足时：
         export MAVEN_OPTS='-Xmx1024m -XX:MaxPermSize=516m'
         
-        
+####   Ambari Cannot register host with not supported os type
+
+    ambari 支持的版本映射关系
+   打开文件 /usr/lib/python2.6/site-packages/ambari_commons/resources/os_family.json
+   找到aliases 关键字
+   "aliases": {
+      "amazon2015": "amazon6",
+      "amazon2016": "amazon6",
+      "amazon2017": "amazon6",
+      "suse11sp3": "suse11"
+    }
+
+    修改 ambari-server 的集群版本信息
+   vim   /etc/ambari-server/conf/ambari.properties
+    server.os_family=redhat6
+    server.os_type=redhat6
+
+
