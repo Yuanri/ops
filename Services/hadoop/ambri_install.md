@@ -128,7 +128,7 @@ For HDP Stack Repositories:
       "suse11sp3": "suse11"
     }
 
-    修改 ambari-server 的集群版本信息
+    修改 ambari-server 的集群版本信息
     vim   /etc/ambari-server/conf/ambari.properties
     server.os_family=redhat6
     server.os_type=redhat6
