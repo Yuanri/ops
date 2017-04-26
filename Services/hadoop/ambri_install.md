@@ -118,7 +118,7 @@ For HDP Stack Repositories:
    
 ####  Ambari Cannot register host with not supported os type
 
-    ambari 支持的版本映射关系
+    1、ambari 支持的版本映射关系
     打开文件 /usr/lib/python2.6/site-packages/ambari_commons/resources/os_family.json
     找到aliases 关键字
     "aliases": {
@@ -127,8 +127,9 @@ For HDP Stack Repositories:
       "amazon2017": "amazon6",
       "suse11sp3": "suse11"
     }
+    注：这里需要手动需改所有节点的os_family.json
 
-    修改 ambari-server 的集群版本信息
+    2、修改 ambari-server 的集群版本信息
     vim   /etc/ambari-server/conf/ambari.properties
     server.os_family=redhat6
     server.os_type=redhat6
