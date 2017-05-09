@@ -1,13 +1,13 @@
-#openssl 生成证书
+# openssl 生成证书
 
-###Step 1. Create key (password protected)
+### Step 1. Create key (password protected)
     openssl genrsa -out prvtkey.pem 1024/2048          (with out password protected)   
     openssl genrsa -des3 -out prvtkey.key 1024/2048    (password protected)
   
 去秘钥的密码：
 
     openssl rsa -in prvtkey.key  -out prvtkey_nopass.key
-###Step 2. Create certification request
+### Step 2. Create certification request
     openssl req -new -key prvtkey.key -out cert.csr
     openssl req -new -nodes -key prvtkey.key -out cert.csr
 
@@ -15,7 +15,7 @@
 这里将生成一个新的文件cert.csr，即一个证书请求文件，你可以拿着这个文件去数字证书颁发机构（即CA）申请一个数字证书。
 CA会给你一个新的文件cacert.pem，那才是你的数字证书。
 
-###Step 3: Send certificate request to Certification Authority (CA)
+### Step 3: Send certificate request to Certification Authority (CA)
 如果是自己做测试，那么证书的申请机构和颁发机构都是自己。就可以用下面这个命令来生成证书：
 
       openssl req -new -x509 -key prvtkey.key -out cacert.pem -days 1095
@@ -23,11 +23,11 @@ CA会给你一个新的文件cacert.pem，那才是你的数字证书。
     
     cacert.pem 生成过程见“OpenSSL建立自己的CA”
 
-###有了prvtkey.key和cacert.pem文件后就可以在自己的程序中使用了，比如做一个加密通讯的服务器
+### 有了prvtkey.key和cacert.pem文件后就可以在自己的程序中使用了，比如做一个加密通讯的服务器
 
 -------------
-#OpenSSL建立自己的CA
-##(1) 环境准备
+# OpenSSL建立自己的CA
+## (1) 环境准备
 
 首先，需要准备一个目录放置CA文件，包括颁发的证书和CRL(Certificate Revoke List)。
 这里我们选择目录 /var/MyCA。
@@ -84,7 +84,7 @@ CA会给你一个新的文件cacert.pem，那才是你的数字证书。
     $ OPENSSL_CONF=/var/MyCA/openssl.cnf"
     $ export OPENSSL_CONF
 
-##(2) 生成根证书 (Root Certificate)
+## (2) 生成根证书 (Root Certificate)
 
 我们需要一个证书来为自己颁发的证书签名，这个证书可从其他CA获取，或者是自签名的根证书。这里我们生成一个自签名的根证书。
 
@@ -108,17 +108,17 @@ CA会给你一个新的文件cacert.pem，那才是你的数字证书。
     [ root_ca_extensions ]
     basicConstraints = CA:true
 
-###万事俱备，我们可以生成根证书了。注意设置好环境变量OPENSSL_CONF。
+### 万事俱备，我们可以生成根证书了。注意设置好环境变量OPENSSL_CONF。
 
     $ openssl req -x509 -newkey rsa -out cacert.pem -outform PEM -days 356
 
     注：“-days 356“控制有效期限为365天，默认为30天。
 
-###验证一下我们生成的文件。
+### 验证一下我们生成的文件。
 
     $ openssl x509 -in cacert.pem -text -noout
 
-##(3) 给客户颁发证书
+## (3) 给客户颁发证书
 
 在给客户颁发证书之前，需要客户提供证书的基本信息。我们另外开启一个终端窗口，使用默认的OpenSSL配置文件(不要让之前的OPENSSL_CONF干扰我们，那个配置是专门用来生成根证书的)。
 
