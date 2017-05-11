@@ -1,5 +1,5 @@
 ## Python 发送邮件脚本
-###1、Python 发送TXT 邮件脚本
+### 1、Python 发送TXT 邮件脚本
 
     #!/usr/bin/env python
     #coding: utf-8 
@@ -28,7 +28,7 @@
         return False
         
         
-###2、Python 发送多附件
+### 2、Python 发送多附件
     #!/usr/bin/env python
     #coding: utf-8  
 
