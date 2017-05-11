@@ -49,10 +49,10 @@ chown -R  $User.$User var
 # 跨区域部署
 # AWS Default HBS port ：10.0.2.163:6030
 # 
-HBS_DEFAULT=10.0.2.163
+HBS_DEFAULT=x.x.x.x
 HBS_PORT=6030
-HBS_Eire=172.30.0.5
-HBS_Singapore=10.0.0.188
+HBS_Eire=x.x.x.x
+HBS_Singapore=x.x.x.x
 HBS="$HBS_Eire $HBS_Singapore"
 hbs_server=$HBS_DEFAULT
 for hbs in $HBS
