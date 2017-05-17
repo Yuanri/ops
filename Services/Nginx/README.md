@@ -1,4 +1,23 @@
-### 1、Nginx 反向代理 传递源IP
+## NGINX 配置
+### 1、隐藏版本号
+
+    http {
+      ...
+      server_tokens  off;
+      ....
+    }
+
+
+### 2、拒绝IP直接访问
+
+    server {
+            listen 80 default_server;
+            server_name _;
+            access_log  off;
+            return 403;
+       }
+
+### 3、Nginx 反向代理 传递源IP
 
     location / {
         proxy_pass http://localhost:8080;
