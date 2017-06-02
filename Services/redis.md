@@ -49,4 +49,5 @@
     # Default is 3 minutes.
     sentinel failover-timeout mymaster 180000
 
-## [redis 迁移 : https://github.com/delano/redis-dump](https://github.com/delano/redis-dump)
+## redis 迁移
+[https://github.com/delano/redis-dump](https://github.com/delano/redis-dump)
