@@ -1,6 +1,6 @@
-#Redis-3.x
+# Redis-3.x
 
-##redis-3.2 安装
+## redis-3.2 安装
 
     源码编译安装：
     
@@ -11,11 +11,9 @@
     #make MALLOC=libc
     make PREFIX=/data/softwares/redis-3.2  install
 
+## Redis-3.x  Sentinel 哨兵模式配置:
 
-
-##Redis-3.x  Sentinel 哨兵模式配置:
-
-###sentinel.conf:
+### sentinel.conf:
 
     #以守护进程的方式运行： 默认注释
     daemonize yes
@@ -51,3 +49,4 @@
     # Default is 3 minutes.
     sentinel failover-timeout mymaster 180000
 
+## [redis 迁移 : https://github.com/delano/redis-dump](https://github.com/delano/redis-dump)
