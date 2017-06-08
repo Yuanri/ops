@@ -76,6 +76,26 @@ logrotate是一个日志文件管理工具。
 		endscript
 		nocompress
 	}
+	
+	#nginx 日志回滚
+	/data/log/nginx/videoportal/boss-access.log
+	{
+	daily                 
+	dateext
+	rotate 7
+	compress                   
+	missingok                     
+	notifempty                
+	sharedscripts             
+	postrotate                  
+	if [ -f /data/softwares/nginx/logs/nginx.pid ]
+	then
+		kill -USR1 `cat /data/softwares/nginx/logs/nginx.pid`
+	fi
+	endscript                    
+	}
+
+
 
 ### 针对正在打开的文件进行日志管理：
 如 Tomcat 的默认日志输出，数据库的慢日志回滚等
