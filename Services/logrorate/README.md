@@ -1,5 +1,5 @@
 
-#logrotate日志管理工具
+# logrotate日志管理工具
 
 logrotate是一个日志文件管理工具。
 
@@ -8,7 +8,7 @@ logrotate是一个日志文件管理工具。
 
 一般都是通过cron计划任务来完成的。
 
-##缺省配置 logrotate
+## 缺省配置 logrotate
 
 	logrotate 缺省的配置募/etc/logrotate.conf。
 	Red Hat Linux 缺省安装的文件内容是：
@@ -46,7 +46,7 @@ logrotate是一个日志文件管理工具。
 	# system-specific logs may be configured here
 
 
-##1、配置实例
+## 1、配置实例
 	
 	/var/log/messages{
 		rotate 5
@@ -77,7 +77,7 @@ logrotate是一个日志文件管理工具。
 		nocompress
 	}
 
-###针对正在打开的文件进行日志管理：
+### 针对正在打开的文件进行日志管理：
 如 Tomcat 的默认日志输出，数据库的慢日志回滚等
 
 	/data/server/tcl-findmyphone-web-8080/logs/catalina.out {
@@ -91,7 +91,7 @@ logrotate是一个日志文件管理工具。
 		size 100M
 	}
 
-##2. 配置选项说明
+## 2. 配置选项说明
 	compress:		通过gzip 压缩转储旧的日志
 	nocompress：		不需要压缩时，用这个参数
 	copytruncate：		用于还在打开中的日志文件，把当前日志备份并截断
@@ -116,7 +116,7 @@ logrotate是一个日志文件管理工具。
 	rotate count：		指定日志文件删除之前转储的次数，0 指没有备份，5 指保留5 个备份
 	size size：		当日志文件到达指定的大小时才转储，Size 可以指定 bytes (缺省)以及KB (sizek)或者MB
 
-##3. 命令参数说明
+## 3. 命令参数说明
  	logrotate --help
 	Usage: logrotate [OPTION...] <configfile>
   	-d, --debug               调试模式，输出调试结果，并不执行。隐式-v参数
