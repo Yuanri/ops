@@ -37,3 +37,14 @@ After running this command apache was willing to start again. Problem solved!
     ># sysctl -p /etc/sysctl.conf
 
 https://wiki.khnet.info/index.php/Conntrack_tuning
+
+### ERR-4: configure: error: C compiler cannot create executables
+        configure: error: C compiler cannot create executables
+        See `config.log' for more details.
+
+        有很多人建议重装GCC，但是确无济于事。
+        这个错误产生的原因其实很简单： 由于我们在编译软件之前，进行了export操作，改变了CFLAGS和LIBS的值。
+
+        这个时候只要讲这个值清空就可以了。
+        sh   export LIBS=
+        sh   export CFLAGS=
