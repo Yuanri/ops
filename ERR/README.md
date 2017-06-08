@@ -1,6 +1,9 @@
 
 # ERR 
-### 1、No space left on device: mod_security: Could not create modsec_auditlog_lock
+### ERR-1: fork: Cannot allocate memory
+   内存被耗光了,需要reboot 系统
+
+### ERR-2: No space left on device: mod_security: Could not create modsec_auditlog_lock
 Today one of my customers contacted me with a normally simple “directadmin won’t restart my apache” question. I restarted apache via SSH and still nothing. I checked the apache error_log and saw the following error:
 [Thu Sep 18 13:09:02 2008] [error] (28)No space left on device: mod_security: Could not create modsec_auditlog_lock
 Configuration Failed
