@@ -1,6 +1,6 @@
 # AWS IAM 
 
-## [AWS 故障问题汇总](https://github.com/Yuani/ops/raw/master/aws/ERR.md)
+## [AWS 故障问题汇总](https://github.com/Yuani/ops/blob/master/aws/ERR.md)
 
 ## IAM policy样例
 
