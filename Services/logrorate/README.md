@@ -77,7 +77,7 @@ logrotate是一个日志文件管理工具。
 		nocompress
 	}
 	
-	#nginx 日志回滚
+	# nginx 日志回滚
 	/data/log/nginx/videoportal/boss-access.log
 	{
 	daily                 
@@ -93,6 +93,20 @@ logrotate是一个日志文件管理工具。
 		kill -USR1 `cat /data/softwares/nginx/logs/nginx.pid`
 	fi
 	endscript                    
+	}
+	
+	# MySQL 慢日志回滚：截断日志，生成新的备份文件
+	/data/mysql/log/slow.log {
+	# compress
+	copytruncate
+	# create 644 mysql mysql
+	daily
+	dateext
+	delaycompress
+	missingok
+	notifempty
+	rotate 7
+	# size 1M
 	}
 
 
