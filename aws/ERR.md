@@ -19,6 +19,6 @@ b、可能是libedit的文图，可是AWS的yum源上libedit已经是最新的�
     # unlink /usr/lib64/libedit.so.0
     # ln -s /usr/local/lib/libedit.so.0.0.55 /usr/lib64/libedit.so.0
 
-    -------------------------------------
+    -------------------------------------
     如果报错：configure: error: libtermcap, libcurses or libncurses are required!
     执行命令：yum install ncurses-devel -y
