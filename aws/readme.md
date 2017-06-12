@@ -1,4 +1,7 @@
 # AWS IAM 
+
+## [AWS 故障问题汇总](https://github.com/Yuani/ops/raw/master/aws/ERR.md)
+
 ## IAM policy样例
 
     http://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/access_policies_examples.html
