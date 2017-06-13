@@ -1,6 +1,4 @@
-# AWS IAM 
-
-## [AWS 故障问题汇总](https://github.com/Yuani/ops/blob/master/aws/ERR.md)
+# AWS EMR
 
 ## IAM policy样例
 
