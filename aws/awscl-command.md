@@ -12,7 +12,7 @@
 
     # 反馈状态异常的EC2实例
     aws ec2 report-instance-status --instances i-1234567890abcdef0 --status impaired --reason-codes code
-    
+
     #查看可用的地理区域
     aws ec2 describe-regions
 
