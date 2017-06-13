@@ -7,7 +7,7 @@ Linux 磁盘扩容
 
 1、首先通过AWS 页面修改块设备大小
 
-2、如果系统提示无法正常动态扩容此案，则需要先stop instance 然后start instance
+2、如果系统提示无法正常动态扩容磁盘，则需要先stop instance 然后start instance
 
 3、登录 instance 操作如下：
 
