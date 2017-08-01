@@ -29,6 +29,7 @@
 
 ### 4、关闭favicon.ico不存在时记录日志
 把以下配置放到 server {} 块.
+
     location /favicon.ico {
         log_not_found off;
         access_log off;
