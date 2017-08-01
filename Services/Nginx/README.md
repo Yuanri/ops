@@ -26,3 +26,17 @@
         proxy_set_header Host $http_host;
         proxy_intercept_errors on;
     }
+
+### 4、关闭favicon.ico不存在时记录日志
+把以下配置放到 server {} 块.
+    location /favicon.ico {
+        log_not_found off;
+        access_log off;
+    }
+### 5、不允许访问隐藏文件例如 .htaccess, .htpasswd, .DS_Store (Mac).
+
+    location ~ /\. {
+        deny all;
+        access_log off;
+        log_not_found off;
+    }
