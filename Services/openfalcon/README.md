@@ -24,7 +24,8 @@ http://open-falcon.org/falcon-plus/
 #### Graph API
 1、进行一次索引数据的全量更新，方法为 
 
+    #更新索引
     curl -s "$Hostname.Of.Task:$Http.Port/index/updateAll"
     
-    # 删除过期索引
-    curl -s "$Hostname.Of.Task:$Http.Port/index/delete"
+    # 删除过期索引
+    curl -s "$Hostname.Of.Task:$Http.Port/index/delete"
