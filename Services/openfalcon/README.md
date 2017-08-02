@@ -1,12 +1,10 @@
 # 1、官方git地址
 https://github.com/open-falcon
 
-
-### API
+#### API
 http://open-falcon.org/falcon-plus/
 
-
-### python
+##### python获取token
 
     import requests
 
@@ -22,3 +20,11 @@ http://open-falcon.org/falcon-plus/
 
     re=requests.get(api+/user/current',headers=header)
     print re.text
+
+#### Graph API
+1、进行一次索引数据的全量更新，方法为 
+
+    curl -s "$Hostname.Of.Task:$Http.Port/index/updateAll"
+    
+    # 删除过期索引
+    curl -s "$Hostname.Of.Task:$Http.Port/index/delete"
