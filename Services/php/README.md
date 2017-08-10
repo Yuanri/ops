@@ -17,7 +17,7 @@
 
     4、编译安装：
     cd php-5.6.31
-    ./configure --prefix=/usr/local/php-5.5.36  --with-config-file-path=/usr/local/php-5.5.36/etc \
+    ./configure --prefix=/data/softwares/php-5.5.36  --with-config-file-path=/data/softwares/php-5.5.36/etc \
     --with-mysql  --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib \
     --enable-xml --disable-rpath   --enable-bcmath --enable-shmop \
     --enable-sysvsem --enable-inline-optimization --with-curl  \
@@ -28,3 +28,13 @@
 
      make
      make install 
+     
+    5、创建软连接：
+     ln -s  /data/softwares/php-5.5.36   /data/softwares/php
+    
+    6、复制配置文件：
+     cp php.ini-production  /data/softwares/php/etc/php.ini
+
+    7、复制启动脚本：
+     cp sapi/fpm/init.d.php-fpm  /etc/init.d/php-fpm
+     chmod +x /etc/init.d/php-fpm 
