@@ -41,3 +41,14 @@
         access_log off;
         log_not_found off;
     }
+
+### 6、PHP 配置
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000  
+    #  
+    location ~ \.php$ {  
+        root html;  
+        fastcgi_pass 127.0.0.1:9000;  
+        fastcgi_index index.php;  
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;  
+        include fastcgi_params;  
+    }
