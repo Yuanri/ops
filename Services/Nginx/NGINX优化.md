@@ -1,4 +1,4 @@
-worker_processes 8
+#### worker_processes 8
 
 一般CPU(i/o)密集型配置为核数相同，网络(i/o)密集型配置为核数倍数(我配置为2倍)
 
@@ -14,17 +14,17 @@ worker_cpu_affinity 00000001 00000010 00000100 00001000 00010000 00100000 010000
 
  
 
-worker_rlimit_nofile 102400;
+#### worker_rlimit_nofile 102400;
 
 每个nginx进程打开文件描述符最大数目 配置要和系统的单进程打开文件数一致,linux 2.6内核下开启文件打开数为65535，
 
 理论值应该是最多打开文件数（ulimit -n）与nginx进程数相除，但是nginx分配请求并不是那么均匀，所以最好与ulimit -n的值保持一致，
 
-worker_rlimit_nofile就相应应该填写65535。
+#### worker_rlimit_nofile就相应应该填写65535。
 
  
 
-use epoll
+#### use epoll
 
 Nginx使用了最新的epoll（Linux 2.6内核）和kqueue（freebsd）网络I/O模型，而Apache则使用的是传统的select模型。
 
@@ -34,12 +34,12 @@ Nginx使用了最新的epoll（Linux 2.6内核）和kqueue（freebsd）网络I/O
 
  
 
-worker_connections 65535;
+#### worker_connections 65535;
 每个工作进程允许最大的同时连接数 （Maxclient = work_processes *　worker_connections）
 
  
 
-keepalive_timeout 75
+#### keepalive_timeout 75
 
 keepalive超时时间，这里需要注意官方的一句话：
 
