@@ -1,8 +1,6 @@
-# 1、官方git地址
-https://github.com/open-falcon
+#### 1、官方git地址 https://github.com/open-falcon
 
-#### API
-http://open-falcon.org/falcon-plus/
+#### API http://open-falcon.org/falcon-plus/
 
 ##### python获取token
 
@@ -12,8 +10,9 @@ http://open-falcon.org/falcon-plus/
     api=r'http://127.0.0.1:8080/api/v1'
 
     #获取sig
-    data={"user":"root","password":"xxxxxx"}
-    re_sig=requests(api+'/user/login',params=data)
+    data={"name":"root","password":"xxxxxx"}
+    re_sig=requests.post(api+'/user/login',params=data)
+    print re_sig.text
 
 
     header={"Apitoken":'{"name":"root","sig":"484hg7q773427gq48454"}'}
