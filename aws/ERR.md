@@ -22,3 +22,13 @@ b、可能是libedit的文图，可是AWS的yum源上libedit已经是最新的�
     -------------------------------------
     如果报错：configure: error: libtermcap, libcurses or libncurses are required!
     执行命令：yum install ncurses-devel -y
+
+
+### 2、cloudfront 配置SSL 使用私人证书
+错误: NSS error -12286    (ERR_SSL_VERSION_OR_CIPHER_MISMATCH)
+方法：
+
+错误：发送 POST 请求失败
+方法：Behaviors ->  Edit  
+    勾选 Allowed HTTP Methods  ：POST 
+    Forward Headers  : ALL
