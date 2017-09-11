@@ -55,17 +55,22 @@
 
 
 ## redis 主从命令
-    1、新redis 加入现有集群：
+1、新redis 加入现有集群：
+
     slaveof redis_ip   redis_port
     
-    2、查看同步信息：
+2、查看同步信息：
+
     info replication
 
-    3、断开主从关系：
+3、断开主从关系：
+
     slaveof no  one
 
-    4、关闭只读：
+4、关闭只读：
+
     CONFIG SET slave-read-only no 
     
-    5、开启只读：
+5、开启只读：
+
     CONFIG SET slave-read-only yes
