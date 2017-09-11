@@ -51,3 +51,19 @@
 
 ## redis 迁移
 [https://github.com/delano/redis-dump](https://github.com/delano/redis-dump)
+
+
+
+## redis 主从命令
+    新redis 加入现有集群：
+    slaveof redis_ip   redis_port
+    查看同步信息：
+    info replication
+
+    断开主从关系：
+    slaveof no  one
+
+    关闭只读：
+    CONFIG SET slave-read-only no 
+    开启只读：
+    CONFIG SET slave-read-only yes
