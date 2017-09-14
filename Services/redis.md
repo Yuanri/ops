@@ -48,6 +48,29 @@
     # sentinel failover-timeout <master-name> <milliseconds>
     # Default is 3 minutes.
     sentinel failover-timeout mymaster 180000
+    
+### sentinel 命令
+    1、添加redis集群监控
+    sentinel moniotr <name> <ip> <port> <quorum>
+
+    2、刷新监控数据
+    sentinel  reset  <mastername>
+
+    3、删除master
+    sentinel remove <mastername>
+
+    4、修改其他属性
+    setinel set <mastername> [<option> <value> …]
+             修改监视的master的一些属性
+             down-after-milliseconds   过了这个时间考虑master go down
+             failover-timeout                   刷新故障转移状态的最大时间
+             parallel-syncs            slave同时reconfigure的个数
+             notification-script        设置通知脚本
+             client-reconfig-script      设置通知脚本
+             auth-pass               执行auth的密码
+             quorum                 修改master的quorum
+
+#### 注意：动态调整sentinel信息时，是需要对所有关联的 sentinel 和  redis同时操作
 
 ## redis 迁移
 [https://github.com/delano/redis-dump](https://github.com/delano/redis-dump)
