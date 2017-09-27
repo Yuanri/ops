@@ -25,8 +25,8 @@
     #配置日志文件
     logfile "/data/redis/log/sentinel_26379.log"
 
-    #配置文件sentinel.conf的路径
-    dir "/data/softwares/redis-3.2/conf"
+    #配置文件conf/sentinel.conf的路径
+    dir "/data/softwares/redis-3.2/"
 
     #配置监控master redis 
     #sentinel monitor <master_redis_name>  <ip> <port>  <>
