@@ -53,3 +53,14 @@
 
     # 删除Retention Policies
     DROP RETENTION POLICY "rp_name" ON "db_name"
+
+#### 3、用户管理
+    # 显示用户
+    SHOW USERS
+    # 创建用户
+    CREATE USER "username" WITH PASSWORD 'password'
+    # 创建管理员权限的用户
+    CREATE USER "username" WITH PASSWORD 'password' WITH ALL PRIVILEGES
+    
+    # 删除用户
+    DROP USER "username"
