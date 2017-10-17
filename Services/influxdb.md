@@ -1,7 +1,7 @@
 ## Influxdb
 时间序列的数据库
 
-#### 1、数据库和表操作：
+### 1、数据库和表操作：
 
     # 创建数据库
     CREATE DATABASE "db_name"
@@ -33,7 +33,7 @@
     # 删除指定的Fields:
     DROP SERIES FROM /.*/ WHERE "your-tag" = 'tag-value-to-delete-data'
 
-#### 2、数据保存策略（Retention Policies）
+### 2、数据保存策略（Retention Policies）
 
     # 查看当前数据库的Retention Policies
     SHOW RETENTION POLICIES ON "testDB"
@@ -54,7 +54,7 @@
     # 删除Retention Policies
     DROP RETENTION POLICY "rp_name" ON "db_name"
 
-#### 3、用户管理
+### 3、用户管理
     # 显示用户
     SHOW USERS
     # 创建用户
