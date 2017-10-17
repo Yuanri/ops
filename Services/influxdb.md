@@ -1,7 +1,7 @@
 ## Influxdb
 时间序列的数据库
 
-#### 1、常用命令：
+#### 1、数据库和表操作：
 
     # 创建数据库
     CREATE DATABASE "db_name"
@@ -32,3 +32,24 @@
 
     # 删除指定的Fields:
     DROP SERIES FROM /.*/ WHERE "your-tag" = 'tag-value-to-delete-data'
+
+#### 2、数据保存策略（Retention Policies）
+
+    # 查看当前数据库的Retention Policies
+    SHOW RETENTION POLICIES ON "testDB"
+
+    # 创建新的Retention Policies
+    CREATE RETENTION POLICY "rp_name" ON "db_name" DURATION 30d REPLICATION 1 DEFAULT
+    其中：
+    rp_name：策略名
+    db_name：具体的数据库名
+    30d：保存30天，30天之前的数据将被删除
+    它具有各种时间参数，比如：h（小时），w（星期）
+    REPLICATION 1：副本个数，这里填1就可以了
+    DEFAULT 设为默认的策略
+
+    # 修改Retention Policies
+    ALTER RETENTION POLICY "rp_name" ON db_name" DURATION 3w DEFAULT
+
+    # 删除Retention Policies
+    DROP RETENTION POLICY "rp_name" ON "db_name"
