@@ -20,6 +20,8 @@
     # 直接在插入数据的时候指定表名（weather就是表名）
     insert weather,altitude=1000,area=北 temperature=11,humidity=-4
 
+    # 查看表中的所有 fields
+    show fields keys from  measurement_name
 
     # 删除单个表：
     DROP MEASUREMENT measurement_name
