@@ -89,8 +89,7 @@
     openssl rand -base64 756 > mongo-keyfile       #推荐使用此法
     或者：
     echo -e 'my sercet key file'  >  mongo-keyfile
-
-    #修改配置文件，添加如下三行
+    #修改配置文件，添加如下三行
     security:
        authorization: enabled
        keyFile: /data/softwares/mongodb/mongo-keyfile
