@@ -36,9 +36,16 @@
     > db.createUser({user:"xxxx",pwd:"xxxxxxxxxxxxxxxxx",roles:[{"role":"dbOwner","db":"newdb"}]}) 
     > show dbs
     
+## 3、mogodb Masater-slave 配置
+
+    启动Master: 
+    mongod --master --dbpath /data/masterdb/
+
+    启动slave:
+    mongod --slave --source <masterhostname><:<port>> --dbpath /data/slavedb/
     
-     
-## 3、Mongodb Replication Set 配置
+     
+## 4、Mongodb Replication Set 配置
 
     1、下载mongodb 可执行文件
     curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.4.9.tgz
