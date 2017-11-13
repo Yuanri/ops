@@ -48,8 +48,8 @@ github 地址:  [Fail2ban](https://github.com/fail2ban/fail2ban)
 ### 2、错误解决方案
 2.1、关键字： iptables  -w
 
-        编辑 /etc/fail2ban/action.d/iptables-common.conf
-        修改：iptables = iptables <lockingopt>
-        为  ：iptables = iptables
+    编辑 /etc/fail2ban/action.d/iptables-common.conf
+    修改：iptables = iptables <lockingopt>
+    为  ：iptables = iptables
 
 
