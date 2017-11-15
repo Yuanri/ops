@@ -22,9 +22,11 @@ PURGE:[iptablesRemoveIp.sh](https://github.com/Yuani/ops/blob/master/Security/pl
     【注】都配置绝对路径
     
     
-
+#### 3、基本命令
+    删除denyed IP
+    denyhosts.py   --purge 
     
-    
+    
 
     
 
