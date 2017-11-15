@@ -17,7 +17,7 @@ PURGE:[iptablesRemoveIp.sh](https://github.com/Yuani/ops/blob/master/Security/pl
     编辑 /etc/denyhosts.conf
     设置 
     IPATBALES    : $(which iptables)
-    PLUGIN_DENY  ：需要创建Iptables 规则添加脚本 [iptablesAddIp.sh](https://github.com/Yuani/ops/tree/master/Security/plugin/iptablesAddIp.sh)
+    PLUGIN_DENY  ：需要创建Iptables 规则添加脚本 [iptablesAddIp.sh]
     PLUGIN_PURGE ：默认提供了iptables 规则删除脚本 ( plugin/iptablesRemoveIp.sh ) 可以直接使用
     【注】都配置绝对路径
     
