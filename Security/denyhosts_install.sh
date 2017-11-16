@@ -24,12 +24,12 @@ MakeSureSecuFile(){
 }
 
 echo "Begin to download denyhosts to System ...."
-curl $URL  -o $PageName  --progress
+wget  $URL
 
 echo "Install denyhost ..."
 if test -f $PageName ;then
         unzip  master.zip 
-        cd master
+        cd denyhosts-master
         pip install -r requirements.txt
         python setup.py install
         echo "Install Successed"
