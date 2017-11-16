@@ -7,6 +7,7 @@
 
 安装脚本：[denyhosts_install.sh](https://github.com/Yuani/ops/tree/master/Security/denyhosts_install.sh)
 
+[注]：默认的后台启动脚本 daemon-control-dist 中 DENYHOSTS_LOCK = "/var/run/denyhosts.pid"
 #### 2、开启 iptables 功能 
 DENY:[iptablesAddIp.sh](https://github.com/Yuani/ops/tree/master/Security/plugin/iptablesAddIp.sh)
 
