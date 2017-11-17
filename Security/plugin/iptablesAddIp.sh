@@ -36,7 +36,7 @@ ipTablesLocation=`cat /etc/denyhosts.conf | grep IPTABLES\ = | awk '{ print $3 }
 #if the rule count is 1 then we don't have an array
 if [[ "1$ip" != "1" ]]
 then
-  ipRules="-I INPUT -s $ip -j DROP"
+  ipRules="-A INPUT -s $ip -j DROP"
   writeToLog 1 $ipRules
   $ipTablesLocation $ipRules
 fi
