@@ -2,7 +2,7 @@
 # denyhosts install
 #
 
-URL_denyhosts=https://github.com/denyhosts/denyhosts/archive/master.zip
+URL_denyhosts=https://github.com/ProForks/denyhosts/archive/master.zip
 URL_ipaddr=https://pypi.python.org/packages/9d/a7/1b39a16cb90dfe491f57e1cab3103a15d4e8dd9a150872744f531b1106c1/ipaddr-2.2.0.tar.gz
         
 # config logrorate
