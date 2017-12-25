@@ -3,15 +3,15 @@
 ### 1、磁盘扩容
 http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html?icmpid=docs_ec2_console
 
-[Linux 磁盘扩容](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html)
+[AWS Linux 磁盘扩容](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html)
 
 1、首先通过AWS 页面修改块设备大小
 
 2、如果系统提示无法正常动态扩容磁盘，则需要先stop instance 然后start instance
 
 3、登录 instance 操作如下：
-ext格式的文件系统扩容：
-    # 查看磁盘格式：
+
+    # 查看磁盘格式：
     # file -s /dev/xvdb
     /dev/xvdb: Linux rev 1.0 ext4 filesystem data, UUID=23a74d25-b4b1-4d0c-a706-39319bd6ce65 (needs journal recovery) (extents) (large files) (huge files)
 
