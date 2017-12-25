@@ -30,15 +30,15 @@ ext格式的文件系统扩容：
     /dev/xvda1      9.8G  1.6G  8.1G  17% /
     /dev/xvdb       197G   97G   91G  52% /data
 
-    # 如果是 ext格式的文件系统，使用如下命令：
-    #resize快设备，重新识别块设备大小
+    # 如果是 ext格式的文件系统，使用如下命令：
+    #resize快设备，重新识别块设备大小
     # resize2fs  /dev/xvdb
     resize2fs 1.42.12 (29-Aug-2014)
     Filesystem at /dev/xvdb is mounted on /data; on-line resizing required
     old_desc_blocks = 13, new_desc_blocks = 25
     The filesystem on /dev/xvdb is now 104857600 (4k) blocks long.
-    
-    #如果是XFS 格式文件系统
+
+    #如果是XFS 格式文件系统
     $ sudo yum install xfsprogs
     $ sudo xfs_growfs -d /mnt
 
