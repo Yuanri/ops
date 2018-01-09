@@ -72,6 +72,10 @@
 
 #### 注意：动态调整sentinel信息时，是需要对所有关联的 sentinel 和  redis同时操作
 
+    1、刷新监控数据： sentinel  reset  <mastername>
+    2、断开主从关系： slaveof no  one
+    以上命令执行间隔小于3s
+
 ## redis 迁移
 [https://github.com/delano/redis-dump](https://github.com/delano/redis-dump)
 
