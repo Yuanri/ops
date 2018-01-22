@@ -1,4 +1,17 @@
 # NGINX 部署安装
+
+### 准备安装包：
+
+[http://luajit.org/download/LuaJIT-2.0.5.tar.gz](http://luajit.org/download/LuaJIT-2.0.5.tar.gz)
+
+[https://github.com/simpl/ngx_devel_kit/archive/master.zip](https://github.com/simpl/ngx_devel_kit/archive/master.zip)
+
+[https://github.com/openresty/lua-nginx-module/archive/master.zip](https://github.com/openresty/lua-nginx-module/archive/master.zip)
+
+[http://tengine.taobao.org/download/tengine-2.2.1.tar.gz](http://tengine.taobao.org/download/tengine-2.2.1.tar.gz)
+
+[https://github.com/nbs-system/naxsi/archive/master.zip](https://github.com/nbs-system/naxsi/archive/master.zip)
+
 ## 1、注：
 
     nginx 启动脚本：
