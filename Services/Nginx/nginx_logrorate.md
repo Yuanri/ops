@@ -66,3 +66,4 @@
 		kill -USR1 $(cat $NGINX_PID)
 
 	fi
+	
