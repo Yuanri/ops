@@ -1,6 +1,14 @@
 # BASH 环境
 ### 常见运维工作使用命令
-### 1、系统 inode 不足
+
+#### 添加自定义LIB文件：
+    在 /etc/ld.so.conf.d/新建一个 xx.conf 文件
+    echo  /path/to/lib  >>  /etc/ld.so.conf.d/xxx.conf
+
+    加载lib: ldconfig
+
+
+#### 1、系统 inode 不足
 原因：大量小文件分布：
 
     A、只有一个或者少量目录下存在大量的小文件，这种情况可以使用下面的命令来找出异常目录：
