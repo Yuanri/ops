@@ -1,6 +1,9 @@
 # MySQL 
 
 
+#### mysql全备份
+    mysqldump -ubackup --flush-logs --single-transaction --master-data=2   -p  --all-databases  >db_all_backup.sql
+
 #### 常用字符集
     ASCII：  美国信息互换标准编码；英语和其他西欧语言；单字节编码，7位表示一个字符，共128字符。
     GBK：    双字节，汉字内码扩展规范；中日韩汉字、英文、数字；双字节编码；共收录了21003个汉字，GB2312的扩展。
