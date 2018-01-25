@@ -1,7 +1,7 @@
 
 # Python paramiko 模块
 
-#### paramiko ssh 执行
+### paramiko ssh 执行
     #!/usr/bin/env python
     #-*- coding:utf-8 -*-
 
@@ -37,7 +37,7 @@
         except:
             print("=== %s\tErrorn\n" % (ip,))
 
-#####  paramiko 上传下载单个文件
+###  paramiko 上传下载单个文件
     #!/usr/bin/python 
     import paramiko
 
