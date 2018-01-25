@@ -1,4 +1,6 @@
 
+# Python paramiko 模块
+
 #### paramiko ssh 执行
     #!/usr/bin/env python
     #-*- coding:utf-8 -*-
