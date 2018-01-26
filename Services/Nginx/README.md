@@ -26,6 +26,17 @@
         proxy_set_header Host $http_host;
         proxy_intercept_errors on;
     }
+    
+    
+##### proxy_params.conf    
+    proxy_next_upstream error timeout invalid_header http_500 http_503 http_404 http_502;
+    proxy_store off;
+    proxy_redirect off;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+
+
 
 ### 4、关闭favicon.ico不存在时记录日志
 把以下配置放到 server {} 块.
