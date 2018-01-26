@@ -42,6 +42,6 @@
                 post.save()
                 return HttpResponseRedirect(reverse('post_detail', kwargs={'post_id': post.id}))
 
-        return render(request, 'post/post_form_upload.html', { 'form': form, })
+        return render(request, 'post/archive.html', { 'form': form, })
   
   
