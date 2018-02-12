@@ -20,13 +20,7 @@
 
 
 
-    普通账号登录系统：
-
-    $ vi .bash_profile  ---增加下面一行
-
-    ulimit -n 65535
-
-    $ source .bash_profile  --使用环境变量生效
+    #重新登录
 
     $ ulimit –n   --验证设置
 
