@@ -17,11 +17,8 @@
     UseLogin yes
 
     # service sshd restart     --重启ssh生效
-
-
-
-    #重新登录
-
+    
+    #重新登录
     $ ulimit –n   --验证设置
 
     65535
