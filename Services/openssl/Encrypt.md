@@ -35,7 +35,7 @@
     ps：在Nginx环境中，只要将对应的ssl_certificate和ssl_certificate_key路径设置成对应的文件路径就可以。
     不要移动和复制文件，因为续期的时候还会在这个文件生成证书。
 
-#### 3 Let's Encrypt免费SSL证书有效期
+#### 3 Let's Encrypt免费SSL证书有效期 
     Let's Encrypt证书是有效期90天的，需要手工更新续期。
 
     将此命令添加到定时任务中即可自动续期
