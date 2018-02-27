@@ -1,7 +1,7 @@
 # Let's Encrypt免费又好用的证书
 
 假设域名为：163.org
-#### 克隆代码
+#### 1 克隆代码
     git clone https://github.com/letsencrypt/letsencrypt
 
 #### 生产证书
@@ -13,7 +13,7 @@
     --email 　　admin@163.org 填写您的Email
     -d 163.org 　　需要使用ssl的域名（必须是当前主机绑定的地址，否则验证失败。）
 
-#### 配置
+#### 2 配置
     在完成Let's Encrypt证书的生成之后，我们会在"/etc/letsencrypt/live/163.org/"域名目录下有4个文件
 
       cert.pem - Apache服务器端证书
@@ -35,7 +35,7 @@
     ps：在Nginx环境中，只要将对应的ssl_certificate和ssl_certificate_key路径设置成对应的文件路径就可以。
     不要移动和复制文件，因为续期的时候还会在这个文件生成证书。
 
-#### Let's Encrypt免费SSL证书有效期
+#### 3 Let's Encrypt免费SSL证书有效期
     Let's Encrypt证书是有效期90天的，需要手工更新续期。
 
     将此命令添加到定时任务中即可自动续期
