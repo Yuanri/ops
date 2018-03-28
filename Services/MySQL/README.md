@@ -1,6 +1,10 @@
 # MySQL 
 
 
+#### 慢查询kill 
+    select concat('kill ', id, ';') from information_schema.processlist where  COMMAND != 'Sleep' and time > 2*60 order by time desc;
+ 
+
 #### mysql全备份
 ##### innodb ：
     mysqldump -ubackup --flush-logs --single-transaction --master-data=2   -p  --all-databases  >db_all_backup.sql
