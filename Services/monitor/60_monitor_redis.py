@@ -9,7 +9,7 @@ import redis
 import requests
 import os,sys
 
-PASSWORD='tclonline'
+PASSWORD='pwd'
 host=['127.0.0.1','6379',PASSWORD]
 
 monit_keys = [
