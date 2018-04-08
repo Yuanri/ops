@@ -4,7 +4,7 @@ import commands,time,json
 db_host='127.0.0.1'
 db_port='3306'
 db_user='monitor'
-db_passwd='m@fa1con'
+db_passwd='pwd'
 mysqlAdmin='/data/softwares/mysql-percona/bin/mysqladmin'
 mysql='/data/softwares/mysql-percona/bin/mysql'
 db_auth=' -h %s -P %s -u %s -p%s ' % (db_host,db_port,db_user,db_passwd)
