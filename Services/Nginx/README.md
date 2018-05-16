@@ -1,4 +1,7 @@
 ## NGINX 配置
+
+官方： [nginx-rewrite-rules](https://www.nginx.com/blog/creating-nginx-rewrite-rules/)
+
 ### 1、隐藏版本号
 
     http {
