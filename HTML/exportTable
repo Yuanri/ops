@@ -1,0 +1,83 @@
+
+
+{% block header_css %}
+<link href="{% static 'vendors/bootgrid/jquery.bootgrid.min.css' %}" rel="stylesheet">
+<link href="{% static 'vendors/timepicki/timepicki.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+
+{% block content %}
+<div class="col-sm-2" style="text-align:center" class="bottle">
+     <button id="exportExcel"  type="button" class="btn btn-primary" onclick="exportExcel()">导出</button>
+</div>
+
+<div class="table-responsive">
+<table class="table table-striped table-vmiddle" id="report-list">
+       <thead>
+          <tr>
+             <th data-column-id="Fdate" data-visible="false" >日期</th>
+             <th data-column-id="Fparty_id" >DPID ({{total.Fparty_id__count}})</th>
+                           
+          </tr>
+        </thead>
+        <tbody>
+        {% for item in collectcompanyreport_list %}
+          <tr>
+            <td>{{ item.Fdate }}</td>
+            <td>{{ item.Fparty_id }}</td>
+          </tr>
+         {% endfor %}
+          </tbody>
+   </table>
+</div>    
+{% endblock %}
+
+
+{% block footer_js %}
+    <script src="{% static 'vendors/bootgrid/jquery.bootgrid.min.js' %}"></script>
+    <script src="{% static 'vendors/tableExport/libs/js-xlsx/xlsx.core.min.js' %}"></script>
+    <script src="{% static 'vendors/tableExport/tableExport.min.js' %}"></script>
+{% endblock %}
+
+
+{% block javascript %}
+ <script type="text/javascript">
+    function exportExcel(){
+        $('#report-list').tableExport({
+            fileName:'export',
+            type:'csv',
+            jspdf: {
+                orientation: 'l',
+                format: 'a3',
+                margins: {
+                    left:10, right:10, top:20, bottom:20
+                },
+                autotable: {
+                    styles: {
+                        fillColor: 'inherit', 
+                        textColor: 'inherit'
+                    },
+                    tableWidth: 'auto'
+                }
+            }
+        });
+    };
+
+    $("#report-list").bootgrid({
+        css: {
+                icon: 'md icon',
+                iconColumns: 'md-view-module',
+                iconDown: 'md-expand-more',
+                iconRefresh: 'md-refresh',
+                iconUp: 'md-expand-less'
+            },
+        rowCount: [40, 15,50, -1],
+        navigation: 3,
+        caseSensitive:false
+        }
+    });
+  
+
+ </script>
+ {% endblock %}
