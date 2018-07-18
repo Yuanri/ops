@@ -36,25 +36,27 @@ ReportInfo(){
 
 	DesIP=$1
 	Interface=$2
+	#对接zabbix
 	ZABBIXClient=$Interface
 	# Temp data File
 	DATA_FILE=pinglog-$DesIP.$$	
-
 	echo From:$Interface  To:$DesIP
 
 	#ping -c $Count -i $Interval -I $Interface -s $PacketSize -w $DeadLine $DesIP | awk '/packet loss/{printf("PING.loss%s %d\n",HOST,$6)}/rtt min/{split($4,v,"/");printf("PING.min%s %.2f\nPING.avg%s %.2f\nPING.max%s %.2f\nPING.mdev%s %.2f\n",HOST,v[1],HOST,v[2],HOST,v[3],HOST,v[4])}' > $DATA_FILE  HOST=$DesIP
-
 	ping -c $Count -i $Interval -I $Interface -s $PacketSize -w $DeadLine $DesIP | awk '/rtt min/{split($4,v,"/");printf("ping.avg%s %.2f\n",HOST,v[2])}' > $DATA_FILE  HOST=$DesIP
 
-	
 	sed -i "s/^ping/$ZABBIXClient ping/"  ${DATA_FILE}
-
 	## Report Data to the zabbix server
 	${ZABBIXREPORT}  -z ${ZABBIXSERVER} -i ${DATA_FILE} 
-
 	# remove the tmp  log files
 	cat $DATA_FILE
 	rm -f ${DATA_FILE}
+	
+#直接写本地本地文件
+#DATA_FILE=ping-${DesIP}-PacketSize_${PacketSize}.log
+#TIME="$(date +'%F %T') From:$Interface To PING:$DesIP"
+#echo $TIME
+#ping -c $Count -i $Interval -I $Interface -s $PacketSize -w $DeadLine $DesIP | awk '/packet loss/{printf("%s\tPING.loss %d\t",HOST,$6)}/rtt min/{split($4,v,"/");printf("PING.min %s\tPING.avg %s\tPING.max %s\tPING.mdev %s\n",v[1],v[2],v[3],v[4])}' >> $DATA_FILE  HOST="$TIME"
 }
 
 ReportInfo "$CheckIP"  "$FromIP"
