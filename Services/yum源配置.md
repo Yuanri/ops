@@ -1,5 +1,6 @@
-1、本地yum源配置
+### 1、本地yum源配置
 这里以centos6.5.iso为例
+#### 单机版YUM
 ##### 1.1 如果是DVD
 
     检查DVD是否挂载：
@@ -43,3 +44,6 @@
     yum clean all
     yum install ntp
 
+#### 局域网版YUM
+    部署web代理服务器，如nginx,apache 等，共享/mnt/cdrom
+    修改local.repo 的baseurl和gpgkey地址为web代理地址
