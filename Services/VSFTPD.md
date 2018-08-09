@@ -107,14 +107,15 @@ vsftpd默认配置文件在 /etc/vsftpd
  
      db_load -T -t hash -f virtuser  virtuser.db
     
-#### 虚拟用户默认配置文件    
-# cat vconf/vconf.tmp
-local_root=/data2/vsftpd/ftpuser/
-anonymous_enable=NO
-write_enable=YES
-local_umask=022
-anon_upload_enable=NO
-anon_mkdir_write_enable=NO
+#### 虚拟用户默认配置文件  
+
+        # cat vconf/vconf.tmp
+        local_root=/data2/vsftpd/ftpuser/
+        anonymous_enable=NO
+        write_enable=YES
+        local_umask=022
+        anon_upload_enable=NO
+        anon_mkdir_write_enable=NO
 
 
 
