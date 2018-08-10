@@ -29,69 +29,77 @@ vsftpd默认配置文件在 /etc/vsftpd
 
 #### /usr/local/services/vsftpd-1.0/conf/vsftpd.conf
 
-    anonymous_enable=NO
-    local_enable=YES
-    write_enable=YES
-    local_umask=022
-    anon_upload_enable=NO
-    anon_mkdir_write_enable=NO
-    dirmessage_enable=YES
-    connect_from_port_20=YES
-    chown_uploads=NO
-    file_open_mode=0664
-    chmod_enable=NO
+    # vsftpd.conf 
+    # fix the bug : 500 OOPS: priv_sock_get_cmd 
+    seccomp_sandbox=NO
 
-    #log
-    xferlog_enable=YES
-    xferlog_std_format=YES
-    xferlog_file=/usr/local/services/vsftpd-1.0/log/xferlog.log
-    syslog_enable=NO
-    log_ftp_protocol=YES
-    vsftpd_log_file=/usr/local/services/vsftpd-1.0/log/vsftpd.log
-    dual_log_enable=YES
-    force_local_logins_ssl=YES
-
+    #working mode : passive 
     listen=YES
-    listen_port=8080
+    listen_ipv6=NO
+    listen_port=65000
     pasv_enable=YES
+    pasv_promiscuous=YES
     pasv_max_port=64000
     pasv_min_port=60000
-    port_enable=NO
+    #pasv_address=49.51.170.129
 
-    listen_ipv6=NO
+    # set anonymous user 
+    anonymous_enable=NO
+    write_enable=YES
+    anon_upload_enable=NO
+    anon_mkdir_write_enable=NO
+    anon_other_write_enable=NO
+
+    #set Local user
+    local_enable=YES
+    local_umask=022
+    file_open_mode=0664
+
+    #access permission
     pam_service_name=vsftpd
-    #tcp_wrappers=YES
-
-    nopriv_user=nobody
+    tcp_wrappers=YES
+    chown_uploads=NO
+    chmod_enable=NO
     async_abor_enable=YES
     ascii_upload_enable=YES
     ascii_download_enable=YES
-    ftpd_banner="Welcome to service. The maximum concurrent threads per ip is 10."
-    chroot_local_user=YES
-    chroot_list_enable=YES
-    chroot_list_file=/usr/local/services/vsftpd-1.0/conf/chroot_list
     ls_recurse_enable=NO
+    local_root=/data2/vsftpd/test
 
 
-    userlist_enable=YES
-    userlist_file=/usr/local/services/vsftpd-1.0/conf/user_list
+    # set  virtual user 
+    nopriv_user=nobody
     guest_enable=YES
-    #guest_username=vsftpd
     guest_username=nobody
-
-    #虚拟用户配置
     virtual_use_local_privs=YES
+    chroot_local_user=YES
+    chroot_list_enable=NO
+    chroot_list_file=/usr/local/services/vsftpd-1.0/conf/chroot_list
+    userlist_enable=YES
+    userlist_deny=YES
+    userlist_file=/usr/local/services/vsftpd-1.0/conf/user_list
     user_config_dir=/usr/local/services/vsftpd-1.0/vconf
-    local_root=/data2/vsftpd/
     allow_writeable_chroot=YES
 
-    #限速配置
-    max_per_ip=10
+
+    # set log
+    xferlog_enable=YES
+    xferlog_std_format=YES
+    xferlog_file=/usr/local/services/vsftpd-1.0/log/xferlog.log
+    log_ftp_protocol=YES
+    dual_log_enable=YES
+    vsftpd_log_file=/usr/local/services/vsftpd-1.0/log/vsftpd.log
+
+
+    # set welcome message
+    dirmessage_enable=YES
+    ftpd_banner="Welcome to T-FTP service. The maximum concurrent threads per ip is 100."
+    hide_ids=YES
+
+    # connection limit
+    max_per_ip=100
     local_max_rate=20000000
     idle_session_timeout=300
-
-    #云主机或者域名解析时
-    pasv_address=x.x.x.x
 
 
 #### 生成认证密码库：
