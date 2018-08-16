@@ -41,7 +41,7 @@ vsftpd默认配置文件在 /etc/vsftpd
     pasv_promiscuous=YES
     pasv_max_port=64000
     pasv_min_port=60000
-    #pasv_address=49.51.170.129
+    #pasv_address=xx.xx.xx.xx
 
     # set anonymous user 
     anonymous_enable=NO
@@ -93,7 +93,7 @@ vsftpd默认配置文件在 /etc/vsftpd
 
     # set welcome message
     dirmessage_enable=YES
-    ftpd_banner="Welcome to T-FTP service. The maximum concurrent threads per ip is 100."
+    ftpd_banner="Welcome to X-FTP service. The maximum concurrent threads per ip is 100."
     hide_ids=YES
 
     # connection limit
