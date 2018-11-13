@@ -1,5 +1,5 @@
 ### ERR1: Fix rpmdb: Thread died in Berkeley DB library
-如果看到以下错误信息：
+如果看到以下错误信息： 说明 rpmdb 文件损坏
 
     rpmdb: Thread/process 277623/140429100390144 failed: Thread died in Berkeley DB library
     error: db3 error(-30974) from dbenv->failchk: DB_RUNRECOVERY: Fatal error, run database recovery
