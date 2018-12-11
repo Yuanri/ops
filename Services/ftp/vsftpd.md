@@ -117,15 +117,31 @@ vsftpd默认配置文件在 /etc/vsftpd
     
 #### 虚拟用户默认配置文件  
 
-        # cat vconf/vconf.tmp
-        local_root=/data2/vsftpd/ftpuser/
-        anonymous_enable=NO
-        write_enable=YES
-        local_umask=022
-        anon_upload_enable=NO
-        anon_mkdir_write_enable=NO
+    # cat vconf/vconf.tmp
+    local_root=/data2/vsftpd/ftpuser/
+    anonymous_enable=NO
+    write_enable=YES
+    local_umask=022
+    anon_upload_enable=NO
+    anon_mkdir_write_enable=NO
 
 
+#### 配置日志回滚：
+编辑logrorate文件：/etc/logrotate.d/vsftpd，添加如下几行：
+
+    /usr/local/services/vsftpd-1.0/log/vsftpd.log {
+        copytruncate
+        daily
+        dateext
+        delaycompress
+        missingok
+        notifempty
+        rotate 7
+        size 100M
+    }
+                
+    测试：logrorate -d /etc/logrotate.d/vsftpd
+    强制执行回滚： logrorate -f /etc/logrotate.d/vsftpd
 
 
 
