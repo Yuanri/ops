@@ -22,3 +22,16 @@
     $ ulimit –n   --验证设置
 
     65535
+    
+### 3、经过以上修改，在有些系统中，用一般用户再登陆，仍然没有修改过来，那么需要检查是否有如下文件，如果没有，则要添加如下内容：
+
+    # vim /etc/pam.d/sshd
+    [Add the line]
+    session required /lib/security/pam_limits.so
+    # service sshd restart
+
+### 4、如果仍然不行，那么需要修改如下文件：
+
+    # vim /etc/ssh/sshd_config
+    [May need to modify or add the line]
+    UsePrivilegeSeparation no
