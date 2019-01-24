@@ -7,7 +7,11 @@
 		dateext
 		rotate 30                 
 		compress                   
-		missingok                     
+		missingok
+		#####使用 user_00账号
+		# su user_00 users
+		# create 644  user_00 users
+		#####################
 		notifempty                
 		sharedscripts             
 		postrotate                  
