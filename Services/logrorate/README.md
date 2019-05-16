@@ -124,6 +124,7 @@ logrotate是一个日志文件管理工具。
 		rotate 7
 		size 100M
 	}
+	
 
 ## 2. 配置选项说明
 	compress:		通过gzip 压缩转储旧的日志
@@ -158,3 +159,24 @@ logrotate是一个日志文件管理工具。
   	-m, --mail=command        发送邮件 (instead of `/bin/mail')
   	-s, --state=statefile     状态文件，对于运行在不同用户情况下有用
   	-v, --verbose             显示debug信息
+
+
+## 4. 系统日志回滚
+指定日期格式
+	# cat  /etc/logrotate.d/syslog
+	/var/log/cron
+	/var/log/maillog
+	/var/log/messages
+	/var/log/secure
+	/var/log/spooler
+	{
+	    missingok
+	    rotate 7
+	    dateext
+	    dateformat -%Y%m%d
+	    sharedscripts
+	    size 1G
+	    postrotate
+		/bin/kill -HUP `cat /var/run/syslogd.pid 2> /dev/null` 2> /dev/null || true
+	    endscript
+	}
