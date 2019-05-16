@@ -163,6 +163,7 @@ logrotate是一个日志文件管理工具。
 
 ## 4. 系统日志回滚
 指定日期格式
+
 	# cat  /etc/logrotate.d/syslog
 	/var/log/cron
 	/var/log/maillog
