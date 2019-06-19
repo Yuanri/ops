@@ -1,4 +1,4 @@
-#1、bash 漏洞：
+# 1、bash 漏洞：
 ##【影响】
 所有安装GNU bash 版本小于或者等于4.3的Linux操作系统
 
@@ -17,16 +17,16 @@
 ##【建议修补方案 】
 请您根据Linux版本选择您需要修复的命令， 为了防止意外情况发生，建议您执行命令前先对Linux服务器系统盘打个快照，如果万一出现升级影响您服务器使用情况，可以通过回滚系统盘快照解决。
 
-###centos:(最终解决方案) 
+### centos:(最终解决方案) 
 	yum clean all 
 	yum makecache 
 	yum -y update bash  
 
-###ubuntu:(最终解决方案) 
+### ubuntu:(最终解决方案) 
 	apt-cache gencaches 
 	apt-get -y install --only-upgrade bash  
 
-###debian:(最终解决方案) 
+### debian:(最终解决方案) 
 	7.5  64bit && 32bit  
 	apt-cache gencaches 
 	apt-get -y install --only-upgrade bash  
