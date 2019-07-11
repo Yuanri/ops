@@ -2,7 +2,9 @@
 
 
 
-### 1、更换坏损磁盘
+## 1、更换坏损磁盘
+#### 软raid 更换磁盘
+
 #### 1.1 查看raid信息
 
     # cat /proc/mdstat 
@@ -34,3 +36,6 @@
           9766917440 blocks super 1.2 level 5, 64k chunk, algorithm 2 [6/5] [UUUU_U]
           bitmap: 4/4 pages [16KB], 262144KB chunk
       
+#### 1.5 向 md0中的添加 sdf ：
+    # mdadm --manage /dev/md0 --add  /dev/sdf
+    mdadm: hot removed /dev/sdf from /dev/md0
